@@ -21,7 +21,6 @@ jobs:
                       ${{ runner.os }}-go-
             - run: |
                   printf "$(go mod graph)\n\n$(go list -mod=readonly -e -m all)" > .debricked-go-dependencies.txt
-            - run: cat .debricked-go-dependencies.txt
             - uses: debricked/actions/scan@v1
               env:
                   DEBRICKED_TOKEN: ${{ secrets.DEBRICKED_TOKEN }}
